@@ -21,7 +21,7 @@ const wordVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut' as const, // ✅ fixes TypeScript error
+      ease: 'easeOut' as const,
     },
   },
 };
@@ -29,15 +29,17 @@ const wordVariants: Variants = {
 // ✅ Moved outside — static data never belongs inside a component
 const headlineWords = "Launching Futures. Powering Growth.".split(' ');
 
-/**
- * Hero component for the ProLaunch Group website.
- * Features animated background, word-by-word headline animation,
- * call-to-action buttons, and scroll indicator.
- */
-export default function Hero() {
+// Shapes pinned to the right side only
+const shapes = [
+  { left: '72%', top: '8%',  duration: 22, rotate: 12  },
+  { left: '85%', top: '25%', duration: 28, rotate: 55  },
+  { left: '68%', top: '45%', duration: 24, rotate: 130 },
+  { left: '80%', top: '62%', duration: 30, rotate: 200 },
+  { left: '90%', top: '78%', duration: 20, rotate: 310 },
+  { left: '65%', top: '80%', duration: 26, rotate: 75  },
+];
 
-  // ✅ scrollToSection stays inside — it references browser APIs
-  //    that should only run client-side, inside the component
+export default function Hero() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -46,36 +48,50 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy to-electricBlue">
-      {/* Animated Background Shapes */}
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #1F3864 0%, #162847 50%, #1a3070 100%)',
+      }}
+    >
+      {/* Floating Background Shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {shapes.map((shape, i) => (
           <motion.div
             key={i}
-            className="absolute opacity-10"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
+            className="absolute"
+            style={{ left: shape.left, top: shape.top }}
             animate={{
               x: [0, 30, 0],
               y: [0, -30, 0],
               rotate: [0, 180, 360],
             }}
             transition={{
-              duration: 20 + Math.random() * 10,
+              duration: shape.duration,
               repeat: Infinity,
-              ease: 'linear' as const, // ✅ fixed here too
+              ease: 'linear' as const,
             }}
           >
             <div
-              className="w-32 h-32 border-2 border-white rounded-lg"
+              className="w-32 h-32 border-2 rounded-lg"
               style={{
-                transform: `rotate(${Math.random() * 360}deg)`,
+                borderColor: 'rgba(46, 134, 222, 0.4)',
+                backgroundColor: 'rgba(46, 134, 222, 0.06)',
+                transform: `rotate(${shape.rotate}deg)`,
               }}
             />
           </motion.div>
         ))}
+
+        {/* Soft radial glow behind the text */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(46,134,222,0.18) 0%, transparent 70%)',
+          }}
+        />
       </div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
@@ -99,7 +115,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <motion.p
-          className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: 'easeOut' as const }}
