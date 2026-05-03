@@ -78,10 +78,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+
+          {/* Logo — white over hero, navy when scrolled */}
           <Link href="/" className="flex items-center space-x-2">
-            <Rocket className="h-8 w-8 text-navy" />
-            <span className="text-xl font-bold text-navy">ProLaunch Group</span>
+            <Rocket className={`h-8 w-8 transition-colors duration-300 ${isScrolled ? 'text-navy' : 'text-white'}`} />
+            <span className={`text-xl font-bold transition-colors duration-300 ${isScrolled ? 'text-navy' : 'text-white'}`}>
+              ProLaunch Group
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -91,9 +94,13 @@ export default function Navbar() {
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 className={`text-sm font-medium transition-colors duration-200 ${
-                  activeSection === item.href.slice(1)
-                    ? 'text-navy'
-                    : 'text-gray-600 hover:text-navy'
+                  isScrolled
+                    ? activeSection === item.href.slice(1)
+                      ? 'text-navy'
+                      : 'text-gray-600 hover:text-navy'
+                    : activeSection === item.href.slice(1)
+                      ? 'text-white'
+                      : 'text-white/70 hover:text-white'
                 }`}
               >
                 {item.label}
@@ -108,22 +115,22 @@ export default function Navbar() {
             </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button — white over hero, navy when scrolled */}
           <button
             className="md:hidden p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-navy" />
+              <X className={`h-6 w-6 transition-colors duration-300 ${isScrolled ? 'text-navy' : 'text-white'}`} />
             ) : (
-              <Menu className="h-6 w-6 text-navy" />
+              <Menu className={`h-6 w-6 transition-colors duration-300 ${isScrolled ? 'text-navy' : 'text-white'}`} />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — always white bg, always navy text */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
