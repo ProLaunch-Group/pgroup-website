@@ -8,6 +8,7 @@ const companies = [
   {
     name: 'ProLaunch Technologies',
     icon: Cloud,
+    url: 'https://tech.prolaunchgroup.org',
     borderClass: 'border-electricBlue',
     bgClass: 'bg-electricBlue/10',
     iconClass: 'text-electricBlue',
@@ -24,6 +25,7 @@ const companies = [
   {
     name: 'ProLaunch Careers',
     icon: Briefcase,
+    url: 'https://careers.prolaunchgroup.org',
     borderClass: 'border-amber',
     bgClass: 'bg-amber/10',
     iconClass: 'text-amber',
@@ -40,6 +42,7 @@ const companies = [
   {
     name: 'ProLaunch Academy',
     icon: GraduationCap,
+    url: 'https://academy.prolaunchgroup.org',
     borderClass: 'border-navy',
     bgClass: 'bg-navy/10',
     iconClass: 'text-navy',
@@ -73,7 +76,7 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut' as const, // ✅ fixes TypeScript error
+      ease: 'easeOut' as const,
     },
   },
 };
@@ -161,14 +164,17 @@ export default function Companies() {
                   ))}
                 </ul>
 
-                {/* Button */}
-                <motion.button
-                  className={`w-full ${company.buttonClass} text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200`}
+                {/* Link — opens in new tab */}
+                <motion.a
+                  href={company.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full ${company.buttonClass} text-white py-2 px-4 rounded-lg font-medium text-center transition-colors duration-200`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Learn More
-                </motion.button>
+                </motion.a>
               </motion.div>
             );
           })}
