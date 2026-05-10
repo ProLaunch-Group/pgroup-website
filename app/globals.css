@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #1F3864;
+  --color-navy: #1f3864;
   --color-electricBlue: #2E86DE;
   --color-amber: #F5A623;
   --font-sans: 'Plus Jakarta Sans', sans-serif;

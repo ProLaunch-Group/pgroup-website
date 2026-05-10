@@ -4,14 +4,12 @@ import About from '../components/About';
 import Companies from '../components/Companies';
 import Services from '../components/Services';
 import WhyUs from '../components/WhyUs';
+import Testimonials from '../components/Testimonials';
+import Leadership from '../components/Leadership';
 import CTABanner from '../components/CTABanner';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
-/**
- * Main page component for the ProLaunch Group website.
- * Composes all section components into a complete landing page.
- */
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -22,6 +20,8 @@ export default function Home() {
         <Companies />
         <Services />
         <WhyUs />
+        <Testimonials />
+        <Leadership />
         <CTABanner />
         <Contact />
       </main>

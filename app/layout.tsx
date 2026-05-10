@@ -9,7 +9,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "ProLaunch Group - Launching Futures. Powering Growth.",
-  description: "Africa's emerging technology and human capital development group — building the talent, technology, and infrastructure that powers tomorrow.",
+  description: "Transforming Africa's technology and human capital development; building the talent, technology, and infrastructure that powers tomorrow.",
 };
 
 export default function RootLayout({

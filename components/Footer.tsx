@@ -1,112 +1,96 @@
 "use client";
 
 import { motion, Variants } from 'framer-motion';
-import { Rocket } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { FaLinkedin, FaXTwitter, FaInstagram, FaFacebook } from 'react-icons/fa6';
 
 // ✅ Moved outside — static data, never changes between renders
 const footerLinks = {
-  prolaunch: {
-    title: 'ProLaunch Group',
-    links: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Our Companies', href: '#companies' },
-      { label: 'Services', href: '#services' },
-      { label: 'Contact', href: '#contact' },
-    ],
-  },
   technologies: {
     title: 'ProLaunch Technologies',
     links: [
-      { label: 'Cloud Services', href: '#' },
-      { label: 'DevOps', href: '#' },
-      { label: 'Software Development', href: '#' },
-      { label: 'IT Consultancy', href: '#' },
+      { label: 'Cloud Services',        href: '#', external: false },
+      { label: 'DevOps',                href: '#', external: false },
+      { label: 'Software Development',  href: '#', external: false },
+      { label: 'IT Consultancy',        href: '#', external: false },
     ],
   },
   careers: {
     title: 'ProLaunch Careers',
     links: [
-      { label: 'Career Grooming Camp', href: 'https://selar.com/career-grooming-camp', target: '_blank' },
-      { label: 'CV Optimisation Tool', href: 'https://prolaunch-cv-optimizer.vercel.app/', target: '_blank'},
-      { label: 'Job Application Assistant', href: '#' },
-      { label: 'Join Our Community', href: 'https://forms.gle/Z1hyUo6UR94e5uw58', target: '_blank' },
+      { label: 'Career Grooming Camp',      href: 'https://selar.com/career-grooming-camp',        external: true  },
+      { label: 'CV Optimisation Tool',      href: 'https://prolaunch-cv-optimizer.vercel.app/',     external: true  },
+      { label: 'Job Application Assistant', href: '#',                                               external: false },
+      { label: 'Join Our Community',        href: 'https://forms.gle/Z1hyUo6UR94e5uw58',           external: true  },
     ],
   },
   academy: {
     title: 'ProLaunch Academy',
     links: [
-      { label: 'Bootcamps', href: '#' },
-      { label: 'Courses', href: '#' },
-      { label: 'Corporate Training', href: '#' },
-      { label: 'Certifications', href: '#' },
+      { label: 'Bootcamps',          href: '#', external: false },
+      { label: 'Courses',            href: '#', external: false },
+      { label: 'Corporate Training', href: '#', external: false },
+      { label: 'Certifications',     href: '#', external: false },
     ],
   },
 };
 
-// ✅ Moved outside — static social links data
 const socialLinks = [
-  { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-  { icon: FaXTwitter, href: '#', label: 'Twitter/X' },
+  { icon: FaLinkedin,  href: '#', label: 'LinkedIn'  },
+  { icon: FaXTwitter,  href: '#', label: 'Twitter/X' },
   { icon: FaInstagram, href: '#', label: 'Instagram' },
-  { icon: FaFacebook, href: '#', label: 'Facebook' },
+  { icon: FaFacebook,  href: '#', label: 'Facebook'  },
 ];
 
-// ✅ Moved outside — static animation variants
+// ---------------------------------------------------------------------------
+// Animation variants
+// ---------------------------------------------------------------------------
 const columnVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut' as const, // ✅ fixes TypeScript error
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
 };
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1, // ✅ stagger replaces manual delay on each column
-    },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const bottomBarVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      delay: 0.4,
-      ease: 'easeOut' as const,
-    },
-  },
+  visible: { opacity: 1, transition: { duration: 0.6, delay: 0.4, ease: 'easeOut' as const } },
 };
 
-// ✅ Extracted reusable link column component — removes 3 blocks of repeated JSX
-interface FooterColumnProps {
-  title: string;
-  links: { label: string; href: string }[];
-  onLinkClick: (href: string) => void;
-}
+// ---------------------------------------------------------------------------
+// Reusable column
+// ---------------------------------------------------------------------------
+interface FooterLink { label: string; href: string; external?: boolean; }
+interface FooterColumnProps { title: string; links: FooterLink[]; onLinkClick: (href: string) => void; }
 
 function FooterColumn({ title, links, onLinkClick }: FooterColumnProps) {
   return (
     <motion.div variants={columnVariants}>
       <h3 className="text-lg font-semibold mb-4">{title}</h3>
       <ul className="space-y-2">
-        {links.map((link, index) => (
-          <li key={index}>
-            <button
-              onClick={() => onLinkClick(link.href)}
-              className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-200 text-left text-sm"
-            >
-              {link.label}
-            </button>
+        {links.map((link) => (
+          <li key={link.label}>
+            {link.external ? (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm inline-block"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <button
+                onClick={() => onLinkClick(link.href)}
+                className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-200 text-left text-sm"
+              >
+                {link.label}
+              </button>
+            )}
           </li>
         ))}
       </ul>
@@ -114,19 +98,14 @@ function FooterColumn({ title, links, onLinkClick }: FooterColumnProps) {
   );
 }
 
-/**
- * Footer component for the ProLaunch Group website.
- * Features company information, subsidiary links, and social media icons.
- */
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
 export default function Footer() {
-
-  // ✅ Stays inside — uses document (browser API)
   const scrollToSection = (href: string) => {
     if (href.startsWith('#') && href.length > 1) {
       const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -142,30 +121,38 @@ export default function Footer() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {/* ProLaunch Group Branding Column */}
+          {/* Branding Column */}
           <motion.div variants={columnVariants}>
-            <div className="flex items-center mb-4">
-              <Rocket className="h-6 w-6 text-electricBlue mr-2" />
-              <span className="text-lg font-bold">ProLaunch Group</span>
-            </div>
+            <Link href="/" className="inline-block mb-5">
+              {/* brightness-0 invert renders the logo in white on the dark navy background */}
+              <Image
+                src="/images/logo-primary.png"
+                alt="ProLaunch Group"
+                width={240}
+                height={72}
+                className="h-26 w-auto object-contain brightness-0 invert"
+              />
+            </Link>
+
             <p className="text-white/80 mb-6 leading-relaxed text-sm">
               &#34;Launching Futures. Powering Growth.&#34; — Africa&#39;s emerging
               technology and human capital development group.
             </p>
+
             {/* Social Icons */}
             <div className="flex space-x-3">
-              {socialLinks.map((social, index) => {
+              {socialLinks.map((social) => {
                 const IconComponent = social.icon;
                 return (
                   <motion.a
-                    key={index}
+                    key={social.label}
                     href={social.href}
                     className="p-2 bg-white/10 rounded-lg hover:bg-electricBlue transition-colors duration-200"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
                     aria-label={social.label}
                     target="_blank"
-                    rel="noopener noreferrer" // ✅ security best practice
+                    rel="noopener noreferrer"
                   >
                     <IconComponent className="h-4 w-4" />
                   </motion.a>
@@ -174,22 +161,10 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Subsidiary Link Columns — using reusable FooterColumn */}
-          <FooterColumn
-            title={footerLinks.technologies.title}
-            links={footerLinks.technologies.links}
-            onLinkClick={scrollToSection}
-          />
-          <FooterColumn
-            title={footerLinks.careers.title}
-            links={footerLinks.careers.links}
-            onLinkClick={scrollToSection}
-          />
-          <FooterColumn
-            title={footerLinks.academy.title}
-            links={footerLinks.academy.links}
-            onLinkClick={scrollToSection}
-          />
+          {/* Subsidiary columns */}
+          <FooterColumn title={footerLinks.technologies.title} links={footerLinks.technologies.links} onLinkClick={scrollToSection} />
+          <FooterColumn title={footerLinks.careers.title}      links={footerLinks.careers.links}      onLinkClick={scrollToSection} />
+          <FooterColumn title={footerLinks.academy.title}      links={footerLinks.academy.links}      onLinkClick={scrollToSection} />
         </motion.div>
 
         {/* Bottom Bar */}
@@ -203,19 +178,16 @@ export default function Footer() {
           <p className="text-white/60 text-sm">
             &copy; {new Date().getFullYear()} ProLaunch Group Limited. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <button
-              className="text-white/60 hover:text-white text-sm transition-colors duration-200"
-              onClick={() => {}} // hook up to a modal or page later
-            >
+          <div className="flex flex-wrap justify-center gap-6">
+            <button className="text-white/60 hover:text-white text-sm transition-colors duration-200" onClick={() => {}}>
               Privacy Policy
             </button>
-            <button
-              className="text-white/60 hover:text-white text-sm transition-colors duration-200"
-              onClick={() => {}}
-            >
+            <button className="text-white/60 hover:text-white text-sm transition-colors duration-200" onClick={() => {}}>
               Terms of Service
             </button>
+            <Link href="/affiliate" className="text-amber hover:text-amber/80 text-sm font-semibold transition-colors duration-200">
+              Become an Affiliate
+            </Link>
           </div>
         </motion.div>
 

@@ -25,7 +25,7 @@ const companies = [
   {
     name: 'ProLaunch Careers',
     icon: Briefcase,
-    url: 'http://careers.prolaunchgroup.org',
+    url: 'https://careers.prolaunchgroup.org',
     borderClass: 'border-amber',
     bgClass: 'bg-amber/10',
     iconClass: 'text-amber',
@@ -50,7 +50,7 @@ const companies = [
     buttonClass: 'bg-navy hover:bg-navy/90',
     description: 'A digital skills and technology training academy offering bootcamps, courses, and certification programmes in various tech domains.',
     services: [
-      'Software Development Bootcamps',
+      'Software Development Training',
       'Cloud Computing Courses',
       'Cybersecurity Training',
       'Data Analytics Programs',
@@ -111,7 +111,7 @@ export default function Companies() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">
-            Our Companies
+            Our Ecosystem
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Three specialized subsidiaries working together to deliver comprehensive

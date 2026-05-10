@@ -19,17 +19,17 @@ const contactDetails = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'info@prolaunchgroup.com',
+    value: 'info@prolaunchgroup.org',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+234 000 000 0000',
+    value: '+234 803 180 5112',
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'Lagos, Nigeria',
+    value: 'Abuja, Nigeria',
   },
 ];
 

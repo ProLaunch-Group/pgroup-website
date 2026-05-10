@@ -27,7 +27,7 @@ const differentiators = [
     icon: Award,
     title: 'Expert-Led Delivery',
     description:
-      'Industry practitioners, not just trainers — real-world experience driving tangible results.',
+      'Industry practitioners, not just trainers; real-world experience driving tangible results.',
     iconBg: 'bg-navy/10',
     iconColor: 'text-navy',
   },
