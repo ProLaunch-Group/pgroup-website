@@ -8,7 +8,7 @@ const companies = [
   {
     name: 'ProLaunch Technologies',
     icon: Cloud,
-    url: 'http://tech.prolaunchgroup.org',
+    url: 'https://tech.prolaunchgroup.org',
     borderClass: 'border-electricBlue',
     bgClass: 'bg-electricBlue/10',
     iconClass: 'text-electricBlue',
@@ -42,7 +42,7 @@ const companies = [
   {
     name: 'ProLaunch Academy',
     icon: GraduationCap,
-    url: 'http://academy.prolaunchgroup.org',
+    url: 'https://academy.prolaunchgroup.org',
     borderClass: 'border-navy',
     bgClass: 'bg-navy/10',
     iconClass: 'text-navy',

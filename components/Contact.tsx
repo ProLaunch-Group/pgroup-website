@@ -8,8 +8,8 @@ import { FaLinkedin, FaXTwitter, FaInstagram, FaFacebook } from 'react-icons/fa6
 
 // ✅ Moved outside — static data, never changes between renders
 const socialLinks = [
-  { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-  { icon: FaXTwitter, href: '#', label: 'Twitter/X' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/company/prolaunch-group/', label: 'LinkedIn' },
+  { icon: FaXTwitter, href: '', label: 'Twitter/X' },
   { icon: FaInstagram, href: '#', label: 'Instagram' },
   { icon: FaFacebook, href: '#', label: 'Facebook' },
 ];
@@ -24,13 +24,13 @@ const contactDetails = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+234 803 180 5112',
+    value: '+234 815 456 3245',
   },
-  {
-    icon: MapPin,
-    label: 'Location',
-    value: 'Abuja, Nigeria',
-  },
+  // {
+  //   icon: MapPin,
+  //   label: 'Location',
+  //   value: 'Abuja, Nigeria',
+  // },
 ];
 
 // ✅ Moved outside — static animation variants
