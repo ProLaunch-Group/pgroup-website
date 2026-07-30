@@ -20,7 +20,7 @@ const footerLinks = {
     title: 'ProLaunch Careers',
     links: [
       { label: 'Career Grooming Camp',      href: 'https://selar.com/career-grooming-camp',        external: true  },
-      { label: 'CV Optimisation Tool',      href: 'https://prolaunch-cv-optimizer.vercel.app/',     external: true  },
+      { label: 'CV Optimisation Tool',      href: 'https://launchiq.prolaunch.cloud/',     external: true  },
       { label: 'Job Application Assistant', href: '#',                                               external: false },
       { label: 'Join Our Community',        href: 'https://forms.gle/Z1hyUo6UR94e5uw58',           external: true  },
     ],

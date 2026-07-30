@@ -19,8 +19,8 @@ const leaders = [
     twitter: 'https://x.com/kweenshaly',
   },
   {
-    name: 'Ismail Bello',
-    title: 'CTO, ProLaunch Technologies',
+    name: 'Emmanuel Adenuel',
+    title: 'Director, ProLaunch Technologies',
     tagline: 'Leading enterprise technology delivery across Africa.',
     subsidiary: 'ProLaunch Technologies',
     photo: null,
@@ -28,16 +28,16 @@ const leaders = [
     twitter: '#',
   },
   {
-    name: 'Peace Eze',
+    name: 'Peace Ajose',
     title: 'Director, ProLaunch Careers',
     tagline: 'Connecting exceptional talent with exceptional opportunity.',
     subsidiary: 'ProLaunch Careers',
-    photo: null,
-    linkedIn: '#',
-    twitter: '#',
+    photo: '/images/peace-ajose.jpeg',
+    linkedIn: 'https://www.linkedin.com/in/peace-ajose-va',
+    facebook: 'https://www.facebook.com/share/1J6JMs5Yds/',
   },
   {
-    name: 'John Doe',
+    name: 'Jiddah Elegbede',
     title: 'Director, ProLaunch Academy',
     tagline: 'Democratising world-class digital education across Africa.',
     subsidiary: 'ProLaunch Academy',
@@ -97,7 +97,7 @@ export default function Leadership() {
             Our Leadership
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Experienced operators and industry practitioners driving ProLaunch&#39;s mission
+            Industry experts and practitioners driving ProLaunch&#39;s mission
             across technology, talent, and training.
           </p>
         </motion.div>

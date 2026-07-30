@@ -30,9 +30,9 @@ const testimonials = [
   },
   {
     name: 'Sixtus Eze',
-    role: 'Software Engineer, GrayLabs',
+    role: 'Cloud Engineer, Intern',
     quote:
-      'The ProLaunch Academy bootcamp was the most intensive and rewarding learning experience of my career. I came in knowing basic HTML and left fully job-ready as a full-stack developer.',
+      'The ProLaunch Academy bootcamp was the most intensive and rewarding learning experience of my career. I came in without even knowing the basics and left fully job-ready as a Cloud Engineer.',
     subsidiary: 'ProLaunch Academy',
     pillClass: 'bg-navy/10 text-navy',
     accentColor: '#1F3864',
