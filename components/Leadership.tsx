@@ -32,7 +32,7 @@ const leaders = [
     title: 'Director, ProLaunch Careers',
     tagline: 'Connecting exceptional talent with exceptional opportunity.',
     subsidiary: 'ProLaunch Careers',
-    photo: '/images/peace-ajose.jpeg',
+    photo: '/images/peace-ajose.png',
     linkedIn: 'https://www.linkedin.com/in/peace-ajose-va',
     facebook: 'https://www.facebook.com/share/1J6JMs5Yds/',
   },

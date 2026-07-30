@@ -53,6 +53,10 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (href: string) => {
+    if (typeof window !== 'undefined' && window.location.pathname !== '/') {
+      window.location.href = '/' + href;
+      return;
+    }
     const element = document.querySelector(href);
     if (element) element.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
