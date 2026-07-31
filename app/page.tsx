@@ -5,6 +5,7 @@ import Companies from '../components/Companies';
 import Services from '../components/Services';
 import WhyUs from '../components/WhyUs';
 import Testimonials from '../components/Testimonials';
+import Partnership from '../components/Partnership';
 import Leadership from '../components/Leadership';
 import CTABanner from '../components/CTABanner';
 import Contact from '../components/Contact';
@@ -21,6 +22,7 @@ export default function Home() {
         <Services />
         <WhyUs />
         <Testimonials />
+        <Partnership />
         <Leadership />
         <CTABanner />
         <Contact />
