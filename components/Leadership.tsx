@@ -34,7 +34,7 @@ const leaders = [
     subsidiary: 'ProLaunch Careers',
     photo: '/images/peace-ajose.png',
     linkedIn: 'https://www.linkedin.com/in/peace-ajose-va',
-    facebook: 'https://www.facebook.com/share/1J6JMs5Yds/',
+    facebook: 'https://www.facebook.com/share/1J6JMs5Yds',
   },
   {
     name: 'Jiddah Elegbede',
@@ -43,7 +43,7 @@ const leaders = [
     subsidiary: 'ProLaunch Academy',
     photo: null,
     linkedIn: '#',
-    twitter: '#',
+    twitter: 'https://www.facebook.com/share/1D6whR1ke8',
   },
 ];
 
