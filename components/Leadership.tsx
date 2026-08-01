@@ -41,8 +41,8 @@ const leaders = [
     title: 'Director, ProLaunch Academy',
     tagline: 'Democratising world-class digital education across Africa.',
     subsidiary: 'ProLaunch Academy',
-    photo: null,
-    linkedIn: '#',
+    photo: '/images/jiddah-elegbede.jpeg',
+    linkedIn: ' https://www.linkedin.com/in/jiddah-elegbede',
     twitter: 'https://www.facebook.com/share/1D6whR1ke8',
   },
 ];
