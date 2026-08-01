@@ -2,13 +2,24 @@
 
 import { useRef } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
-import { FaLinkedin, FaXTwitter } from 'react-icons/fa6';
+import { FaLinkedin, FaXTwitter, FaFacebook } from 'react-icons/fa6';
 import Image from 'next/image';
+
+interface Leader {
+  name: string;
+  title: string;
+  tagline: string;
+  subsidiary: string;
+  photo: string | null;
+  linkedIn: string;
+  twitter?: string;
+  facebook?: string;
+}
 
 // ---------------------------------------------------------------------------
 // Static data — outside component
 // ---------------------------------------------------------------------------
-const leaders = [
+const leaders: Leader[] = [
   {
     name: 'Mary-Queen Uchechukwu',
     title: 'Founder & Group CEO',
@@ -42,8 +53,8 @@ const leaders = [
     tagline: 'Democratising world-class digital education across Africa.',
     subsidiary: 'ProLaunch Academy',
     photo: '/images/jiddah-elegbede.jpeg',
-    linkedIn: ' https://www.linkedin.com/in/jiddah-elegbede',
-    twitter: 'https://www.facebook.com/share/1D6whR1ke8',
+    linkedIn: 'https://www.linkedin.com/in/jiddah-elegbede',
+    facebook: 'https://www.facebook.com/share/1D6whR1ke8',
   },
 ];
 
@@ -144,24 +155,39 @@ export default function Leadership() {
 
               {/* Social links */}
               <div className="flex gap-3 mt-auto">
-                <a
-                  href={leader.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-electricBlue hover:border-electricBlue transition-colors duration-200"
-                  aria-label={`${leader.name} LinkedIn`}
-                >
-                  <FaLinkedin size={14} />
-                </a>
-                <a
-                  href={leader.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-electricBlue hover:border-electricBlue transition-colors duration-200"
-                  aria-label={`${leader.name} Twitter`}
-                >
-                  <FaXTwitter size={14} />
-                </a>
+                {leader.linkedIn && leader.linkedIn !== '#' && (
+                  <a
+                    href={leader.linkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-electricBlue hover:border-electricBlue transition-colors duration-200"
+                    aria-label={`${leader.name} LinkedIn`}
+                  >
+                    <FaLinkedin size={14} />
+                  </a>
+                )}
+                {leader.facebook && leader.facebook !== '#' && (
+                  <a
+                    href={leader.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-electricBlue hover:border-electricBlue transition-colors duration-200"
+                    aria-label={`${leader.name} Facebook`}
+                  >
+                    <FaFacebook size={14} />
+                  </a>
+                )}
+                {leader.twitter && leader.twitter !== '#' && (
+                  <a
+                    href={leader.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-400 hover:text-electricBlue hover:border-electricBlue transition-colors duration-200"
+                    aria-label={`${leader.name} Twitter`}
+                  >
+                    <FaXTwitter size={14} />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
