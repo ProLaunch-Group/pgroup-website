@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { Cloud, Briefcase, GraduationCap } from 'lucide-react';
 
@@ -7,6 +8,7 @@ import { Cloud, Briefcase, GraduationCap } from 'lucide-react';
 const companies = [
   {
     name: 'ProLaunch Technologies',
+    logo: '/images/ProLaunch_Technologies_Logo_Light_HQ.png',
     icon: Cloud,
     url: 'https://tech.prolaunchgroup.org',
     borderClass: 'border-electricBlue',
@@ -24,6 +26,7 @@ const companies = [
   },
   {
     name: 'ProLaunch Careers',
+    logo: '/images/logo2.png',
     icon: Briefcase,
     url: 'https://careers.prolaunchgroup.org',
     borderClass: 'border-amber',
@@ -41,6 +44,7 @@ const companies = [
   },
   {
     name: 'ProLaunch Academy',
+    logo: '/images/PROLANUCH-06.jpg',
     icon: GraduationCap,
     url: 'https://academy.prolaunchgroup.org',
     borderClass: 'border-navy',
@@ -136,9 +140,20 @@ export default function Companies() {
                 variants={cardVariants}
                 whileHover={{ y: -10, transition: { duration: 0.2 } }}
               >
-                {/* Icon */}
-                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg ${company.bgClass} mb-4`}>
-                  <IconComponent className={`h-6 w-6 ${company.iconClass}`} />
+                {/* Brand Logo & Subsidiary Icon Badge */}
+                <div className="flex items-center justify-between mb-6 h-12">
+                  <div className="h-12 flex items-center">
+                    <Image
+                      src={company.logo}
+                      alt={company.name}
+                      width={180}
+                      height={50}
+                      className="h-10 max-w-[160px] w-auto object-contain object-left"
+                    />
+                  </div>
+                  <div className={`inline-flex items-center justify-center p-2.5 rounded-xl ${company.bgClass} flex-shrink-0`}>
+                    <IconComponent className={`h-5 w-5 ${company.iconClass}`} />
+                  </div>
                 </div>
 
                 {/* Name */}
