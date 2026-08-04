@@ -176,12 +176,12 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} ProLaunch Group Limited. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="text-white/60 hover:text-white text-sm transition-colors duration-200" onClick={() => {}}>
+            <Link href="/privacy" className="text-white/60 hover:text-white text-sm transition-colors duration-200">
               Privacy Policy
-            </button>
-            <button className="text-white/60 hover:text-white text-sm transition-colors duration-200" onClick={() => {}}>
+            </Link>
+            <Link href="/terms" className="text-white/60 hover:text-white text-sm transition-colors duration-200">
               Terms of Service
-            </button>
+            </Link>
             <Link href="/affiliate" className="text-amber hover:text-amber/80 text-sm font-semibold transition-colors duration-200">
               Become an Affiliate
             </Link>
