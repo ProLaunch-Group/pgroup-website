@@ -44,11 +44,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/images/logo-primary.png", type: "image/png" },
+      { url: "/images/Primary-logo.jpg", type: "image/jpeg" },
     ],
     shortcut: ["/favicon.ico"],
     apple: [
-      { url: "/images/logo-primary.png", sizes: "180x180", type: "image/png" },
+      { url: "/images/Primary-logo.jpg", sizes: "180x180", type: "image/jpeg" },
     ],
   },
   openGraph: {
@@ -59,10 +59,10 @@ export const metadata: Metadata = {
     siteName: "ProLaunch Group",
     images: [
       {
-        url: `${siteUrl}/images/logo-primary.png`,
+        url: `${siteUrl}/images/Primary-logo.jpg`,
         width: 1200,
         height: 630,
-        alt: "ProLaunch Group Branding Logo",
+        alt: "ProLaunch Group Primary Logo",
       },
     ],
     locale: "en_US",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     title: "ProLaunch Group | Launching Futures. Powering Growth.",
     description:
       "Transforming Africa's tech ecosystem through ProLaunch Technologies, ProLaunch Careers, and ProLaunch Academy.",
-    images: [`${siteUrl}/images/logo-primary.png`],
+    images: [`${siteUrl}/images/Primary-logo.jpg`],
   },
   robots: {
     index: true,
@@ -96,7 +96,7 @@ const jsonLd = {
       "@id": `${siteUrl}/#organization`,
       name: "ProLaunch Group",
       url: siteUrl,
-      logo: `${siteUrl}/images/logo-primary.png`,
+      logo: `${siteUrl}/images/Primary-logo.jpg`,
       description:
         "ProLaunch Group is Africa's emerging technology and human capital development group.",
       sameAs: [
