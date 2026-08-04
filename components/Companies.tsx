@@ -55,8 +55,8 @@ const companies = [
     description: 'A digital skills and technology training academy offering bootcamps, courses, and certification programmes in various tech domains.',
     services: [
       'Software Development Training',
-      'Cloud Computing Courses',
-      'Cybersecurity Training',
+      'Cloud Computing Training',
+      'Digital Training',
       'Data Analytics Programs',
     ],
   },

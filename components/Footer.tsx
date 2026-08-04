@@ -3,17 +3,17 @@
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaLinkedin, FaXTwitter, FaInstagram, FaFacebook } from 'react-icons/fa6';
+import { FaLinkedin } from 'react-icons/fa6';
 
 // ✅ Moved outside — static data, never changes between renders
 const footerLinks = {
   technologies: {
     title: 'ProLaunch Technologies',
     links: [
-      { label: 'Cloud Services',        href: '#', external: false },
-      { label: 'DevOps',                href: '#', external: false },
-      { label: 'Software Development',  href: '#', external: false },
-      { label: 'IT Consultancy',        href: '#', external: false },
+      { label: 'Cloud Migrations & Management',        href: '#', external: false },
+      { label: 'DevOps & Pipelines Builds',                href: '#', external: false },
+      { label: 'Custom Software Development',  href: '#', external: false },
+      { label: 'General IT Consultancy',        href: '#', external: false },
     ],
   },
   careers: {
@@ -28,8 +28,8 @@ const footerLinks = {
   academy: {
     title: 'ProLaunch Academy',
     links: [
-      { label: 'Bootcamps',          href: '#', external: false },
-      { label: 'Courses',            href: '#', external: false },
+      { label: 'Live Bootcamps',          href: '#', external: false },
+      { label: 'Short Courses',            href: '#', external: false },
       { label: 'Corporate Training', href: '#', external: false },
       { label: 'Certifications',     href: '#', external: false },
     ],
@@ -38,9 +38,6 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: FaLinkedin,  href: '#', label: 'LinkedIn'  },
-  { icon: FaXTwitter,  href: '#', label: 'Twitter/X' },
-  { icon: FaInstagram, href: '#', label: 'Instagram' },
-  { icon: FaFacebook,  href: '#', label: 'Facebook'  },
 ];
 
 // ---------------------------------------------------------------------------
